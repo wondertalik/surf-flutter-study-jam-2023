@@ -1,21 +1,30 @@
+import 'dart:async';
+import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
 import 'package:flutter/material.dart';
-import 'package:surf_flutter_study_jam_2023/features/ticket_storage/ticket_storage_page.dart';
+import 'package:surf_flutter_study_jam_2023/app.dart';
+import 'package:surf_flutter_study_jam_2023/service_locator.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'app_bloc_observer.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+void main() => runZonedGuarded<void>(
+      () async {
+        WidgetsFlutterBinding.ensureInitialized();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const TicketStoragePage(),
+        Bloc.observer = AppBlocObserver.instance();
+        Bloc.transformer = bloc_concurrency.sequential<Object?>();
+        setPathUrlStrategy();
+
+        await ServiceLocator().init();
+
+        runApp(
+          const App(),
+        );
+      },
+      (error, stackTrace) {
+        print('runZonded');
+        print(error);
+        print(stackTrace);
+      },
     );
-  }
-}
