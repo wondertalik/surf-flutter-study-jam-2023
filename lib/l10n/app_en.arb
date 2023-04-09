@@ -6,6 +6,9 @@
     "validationRequiredMessage": "Field is validationRequiredMessage",
     "validationUrlMessage": "Wrong format of url",
     "ticketListEmpty": "Nothing here for now",
-    "ticketAddedSuccessfully": "Ticket added successfully"
+    "ticketAddedSuccessfully": "Ticket added successfully",
+    "ticketAwaitingDownloadLabel": "Awaiting download",
+    "ticketDownloadedLabel": "Ticket downloaded",
+    "ticketDownloadingLabel": "Downloading"
 
 }

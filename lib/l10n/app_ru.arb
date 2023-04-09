@@ -6,6 +6,8 @@
     "validationRequiredMessage": "Поле обязательное к заполнению",
     "validationUrlMessage": "Не верный формат Url",
     "ticketListEmpty": "Здесь ничего нет",
-    "ticketAddedSuccessfully": "Билет успешно добавлен"
-
+    "ticketAddedSuccessfully": "Билет успешно добавлен",
+    "ticketAwaitingDownloadLabel": "Ожидает начала загрузки",
+    "ticketDownloadedLabel": "Файл загружен",
+    "ticketDownloadingLabel": "Загружается"
 }

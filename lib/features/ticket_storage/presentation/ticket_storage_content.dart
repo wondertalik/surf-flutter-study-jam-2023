@@ -38,17 +38,42 @@ class TicketsList extends StatelessWidget {
         child: Text(AppLocalizations.of(context)!.ticketListEmpty),
       );
     }
-    return ListView.builder(
-      itemCount: tickets.length,
-      itemBuilder: (context, index) {
-        final item = tickets[index];
-        return Card(
-          child: ListTile(
-            title: Text(item.id.toString()),
-            subtitle: Text(item.createdAt.toIso8601String()),
-          ),
-        );
-      },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListView.separated(
+        itemCount: tickets.length,
+        itemBuilder: (context, index) {
+          final item = tickets[index];
+          final progress = 0.0;
+          return Row(
+            children: [
+              const Icon(Icons.airplane_ticket_outlined),
+              const SizedBox(width: 24.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(item.fileName),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      child: LinearProgressIndicator(
+                        value: progress,
+                      ),
+                    ),
+                    Text(AppLocalizations.of(context)!
+                        .ticketAwaitingDownloadLabel),
+                  ],
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.cloud_download_outlined),
+              ),
+            ],
+          );
+        },
+        separatorBuilder: (context, _) => const SizedBox(height: 24.0),
+      ),
     );
   }
 }
