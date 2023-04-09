@@ -3,6 +3,7 @@
     "ticketAddNew": "Add new",
     "ticketUrlFieldLable": "Fill url",
     "ticketButtonAdd": "Add url",
-    "validationRequiredMessage": "Поле обязательное к заполнению",
-    "validationUrlMessage": "Не верный формат Url"
+    "validationRequiredMessage": "Field is validationRequiredMessage",
+    "validationUrlMessage": "Wrong format of url",
+    "ticketListEmpty": "Nothing here for now"
 }

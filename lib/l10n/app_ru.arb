@@ -4,5 +4,7 @@
     "ticketUrlFieldLable": "Введите url",
     "ticketButtonAdd": "Добавить",
     "validationRequiredMessage": "Поле обязательное к заполнению",
-    "validationUrlMessage": "Не верный формат Url"
+    "validationUrlMessage": "Не верный формат Url",
+    "ticketListEmpty": "Здесь ничего нет"
+
 }
