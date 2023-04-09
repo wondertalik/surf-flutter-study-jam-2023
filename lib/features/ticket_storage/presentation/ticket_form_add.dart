@@ -23,43 +23,61 @@ class _TicketFormAddState extends State<TicketFormAdd> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          AppTextField(
-            key: const ValueKey('ticket_url'),
-            labelText: AppLocalizations.of(context)!.ticketUrlFieldLable,
-            rules: [
-              RequiredValidationRule(
-                AppLocalizations.of(context)!.validationRequiredMessage,
-              ),
-              UrlValidationRule(
-                AppLocalizations.of(context)!.validationUrlMessage,
-              ),
-            ],
-            onChanged: (value) {
-              urlValue = value;
-            },
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          ElevatedButton(
-            child: Text(AppLocalizations.of(context)!.ticketButtonAdd),
-            onPressed: () {
-              var bloc = context.read<TicketCreateBloc>();
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                context.pop();
-                context.read<TicketCreateBloc>().add(
-                    TicketCreateEvent.add(data: TicketCreate(url: urlValue!)));
-              }
-            },
-          ),
-        ],
+    return BlocListener<TicketCreateBloc, TicketCreateState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          created: () {
+            context.pop();
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  showCloseIcon: true,
+                  content: Text(
+                    AppLocalizations.of(context)!.ticketAddedSuccessfully,
+                  ),
+                ),
+              );
+          },
+        );
+      },
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            AppTextField(
+              key: const ValueKey('ticket_url'),
+              labelText: AppLocalizations.of(context)!.ticketUrlFieldLable,
+              rules: [
+                RequiredValidationRule(
+                  AppLocalizations.of(context)!.validationRequiredMessage,
+                ),
+                UrlValidationRule(
+                  AppLocalizations.of(context)!.validationUrlMessage,
+                ),
+              ],
+              onChanged: (value) {
+                urlValue = value;
+              },
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            ElevatedButton(
+              child: Text(AppLocalizations.of(context)!.ticketButtonAdd),
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  context.read<TicketCreateBloc>().add(TicketCreateEvent.add(
+                      data: TicketCreate(url: urlValue!)));
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

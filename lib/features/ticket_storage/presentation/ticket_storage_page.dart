@@ -29,7 +29,8 @@ class _TicketStoragePageState extends State<TicketStoragePage> {
       ),
       body: SafeArea(
         child: BlocProvider(
-          create: (context) => ServiceLocator.instance.sl<TicketListBloc>(param1: _ticketRepository)
+          create: (context) => ServiceLocator.instance
+              .sl<TicketListBloc>(param1: _ticketRepository)
             ..add(const TicketListEvent.requested()),
           child: const TicketStorageContent(),
         ),
@@ -56,8 +57,8 @@ class _TicketStoragePageState extends State<TicketStoragePage> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16.0, vertical: 48.0),
                       child: BlocProvider(
-                        create: (context) =>
-                            ServiceLocator.instance.sl<TicketCreateBloc>(param1: _ticketRepository),
+                        create: (context) => ServiceLocator.instance
+                            .sl<TicketCreateBloc>(param1: _ticketRepository),
                         child: const TicketFormAdd(),
                       ),
                     ),

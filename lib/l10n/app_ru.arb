@@ -5,6 +5,7 @@
     "ticketButtonAdd": "Добавить",
     "validationRequiredMessage": "Поле обязательное к заполнению",
     "validationUrlMessage": "Не верный формат Url",
-    "ticketListEmpty": "Здесь ничего нет"
+    "ticketListEmpty": "Здесь ничего нет",
+    "ticketAddedSuccessfully": "Билет успешно добавлен"
 
 }

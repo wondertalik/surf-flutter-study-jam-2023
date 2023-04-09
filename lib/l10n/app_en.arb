@@ -5,5 +5,7 @@
     "ticketButtonAdd": "Add url",
     "validationRequiredMessage": "Field is validationRequiredMessage",
     "validationUrlMessage": "Wrong format of url",
-    "ticketListEmpty": "Nothing here for now"
+    "ticketListEmpty": "Nothing here for now",
+    "ticketAddedSuccessfully": "Ticket added successfully"
+
 }
