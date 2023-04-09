@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/ticket_storage.dart';
@@ -15,7 +17,9 @@ class TicketListEvent with _$TicketListEvent {
 class TicketListState with _$TicketListState {
   const factory TicketListState.initial() = _TicketListStateInitial;
 
- const factory TicketListState.loading() = _TicketListStateLoading;
+  const factory TicketListState.loading() = _TicketListStateLoading;
+
+  const factory TicketListState.addedNew() = _TicketListStateAddedNew;
 
   const factory TicketListState.success({required List<Ticket> tickets}) =
       _TicketListSuccess;
@@ -28,16 +32,30 @@ class TicketListBloc extends Bloc<TicketListEvent, TicketListState> {
     required TicketRepository ticketRepository,
   })  : _ticketRepository = ticketRepository,
         super(const TicketListState.initial()) {
+    _ticketStreamSubscription = ticketRepository.events.listen(
+      (event) => event.map(
+        created: (event) => add(const TicketListEvent.requested()),
+      ),
+    );
     on<TicketListEvent>((event, emitter) => event.map<Future<void>>(
         requested: (event) => _requestTickets(event, emitter)));
   }
 
   final TicketRepository _ticketRepository;
+  late StreamSubscription<TicketRepositoryEvent> _ticketStreamSubscription;
 
   Future<void> _requestTickets(
       _TicketListEventRequested event, Emitter<TicketListState> emitter) async {
-    var results = await _ticketRepository.getTickets();
+    emitter(const TicketListState.loading());
+    
+    final results = await _ticketRepository.getTickets();
 
-    emit(TicketListState.success(tickets: results));
+    emitter(TicketListState.success(tickets: results));
+  }
+
+  @override
+  Future<void> close() {
+    _ticketStreamSubscription.cancel();
+    return super.close();
   }
 }

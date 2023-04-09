@@ -173,6 +173,7 @@ mixin _$TicketListState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() addedNew,
     required TResult Function(List<Ticket> tickets) success,
   }) =>
       throw _privateConstructorUsedError;
@@ -180,6 +181,7 @@ mixin _$TicketListState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? addedNew,
     TResult? Function(List<Ticket> tickets)? success,
   }) =>
       throw _privateConstructorUsedError;
@@ -187,6 +189,7 @@ mixin _$TicketListState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? addedNew,
     TResult Function(List<Ticket> tickets)? success,
     required TResult orElse(),
   }) =>
@@ -195,6 +198,7 @@ mixin _$TicketListState {
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketListStateInitial value) initial,
     required TResult Function(_TicketListStateLoading value) loading,
+    required TResult Function(_TicketListStateAddedNew value) addedNew,
     required TResult Function(_TicketListSuccess value) success,
   }) =>
       throw _privateConstructorUsedError;
@@ -202,6 +206,7 @@ mixin _$TicketListState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketListStateInitial value)? initial,
     TResult? Function(_TicketListStateLoading value)? loading,
+    TResult? Function(_TicketListStateAddedNew value)? addedNew,
     TResult? Function(_TicketListSuccess value)? success,
   }) =>
       throw _privateConstructorUsedError;
@@ -209,6 +214,7 @@ mixin _$TicketListState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketListStateInitial value)? initial,
     TResult Function(_TicketListStateLoading value)? loading,
+    TResult Function(_TicketListStateAddedNew value)? addedNew,
     TResult Function(_TicketListSuccess value)? success,
     required TResult orElse(),
   }) =>
@@ -274,6 +280,7 @@ class _$_TicketListStateInitial extends _TicketListStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() addedNew,
     required TResult Function(List<Ticket> tickets) success,
   }) {
     return initial();
@@ -284,6 +291,7 @@ class _$_TicketListStateInitial extends _TicketListStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? addedNew,
     TResult? Function(List<Ticket> tickets)? success,
   }) {
     return initial?.call();
@@ -294,6 +302,7 @@ class _$_TicketListStateInitial extends _TicketListStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? addedNew,
     TResult Function(List<Ticket> tickets)? success,
     required TResult orElse(),
   }) {
@@ -308,6 +317,7 @@ class _$_TicketListStateInitial extends _TicketListStateInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketListStateInitial value) initial,
     required TResult Function(_TicketListStateLoading value) loading,
+    required TResult Function(_TicketListStateAddedNew value) addedNew,
     required TResult Function(_TicketListSuccess value) success,
   }) {
     return initial(this);
@@ -318,6 +328,7 @@ class _$_TicketListStateInitial extends _TicketListStateInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketListStateInitial value)? initial,
     TResult? Function(_TicketListStateLoading value)? loading,
+    TResult? Function(_TicketListStateAddedNew value)? addedNew,
     TResult? Function(_TicketListSuccess value)? success,
   }) {
     return initial?.call(this);
@@ -328,6 +339,7 @@ class _$_TicketListStateInitial extends _TicketListStateInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketListStateInitial value)? initial,
     TResult Function(_TicketListStateLoading value)? loading,
+    TResult Function(_TicketListStateAddedNew value)? addedNew,
     TResult Function(_TicketListSuccess value)? success,
     required TResult orElse(),
   }) {
@@ -384,6 +396,7 @@ class _$_TicketListStateLoading extends _TicketListStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() addedNew,
     required TResult Function(List<Ticket> tickets) success,
   }) {
     return loading();
@@ -394,6 +407,7 @@ class _$_TicketListStateLoading extends _TicketListStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? addedNew,
     TResult? Function(List<Ticket> tickets)? success,
   }) {
     return loading?.call();
@@ -404,6 +418,7 @@ class _$_TicketListStateLoading extends _TicketListStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? addedNew,
     TResult Function(List<Ticket> tickets)? success,
     required TResult orElse(),
   }) {
@@ -418,6 +433,7 @@ class _$_TicketListStateLoading extends _TicketListStateLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketListStateInitial value) initial,
     required TResult Function(_TicketListStateLoading value) loading,
+    required TResult Function(_TicketListStateAddedNew value) addedNew,
     required TResult Function(_TicketListSuccess value) success,
   }) {
     return loading(this);
@@ -428,6 +444,7 @@ class _$_TicketListStateLoading extends _TicketListStateLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketListStateInitial value)? initial,
     TResult? Function(_TicketListStateLoading value)? loading,
+    TResult? Function(_TicketListStateAddedNew value)? addedNew,
     TResult? Function(_TicketListSuccess value)? success,
   }) {
     return loading?.call(this);
@@ -438,6 +455,7 @@ class _$_TicketListStateLoading extends _TicketListStateLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketListStateInitial value)? initial,
     TResult Function(_TicketListStateLoading value)? loading,
+    TResult Function(_TicketListStateAddedNew value)? addedNew,
     TResult Function(_TicketListSuccess value)? success,
     required TResult orElse(),
   }) {
@@ -451,6 +469,122 @@ class _$_TicketListStateLoading extends _TicketListStateLoading {
 abstract class _TicketListStateLoading extends TicketListState {
   const factory _TicketListStateLoading() = _$_TicketListStateLoading;
   const _TicketListStateLoading._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_TicketListStateAddedNewCopyWith<$Res> {
+  factory _$$_TicketListStateAddedNewCopyWith(_$_TicketListStateAddedNew value,
+          $Res Function(_$_TicketListStateAddedNew) then) =
+      __$$_TicketListStateAddedNewCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TicketListStateAddedNewCopyWithImpl<$Res>
+    extends _$TicketListStateCopyWithImpl<$Res, _$_TicketListStateAddedNew>
+    implements _$$_TicketListStateAddedNewCopyWith<$Res> {
+  __$$_TicketListStateAddedNewCopyWithImpl(_$_TicketListStateAddedNew _value,
+      $Res Function(_$_TicketListStateAddedNew) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TicketListStateAddedNew extends _TicketListStateAddedNew {
+  const _$_TicketListStateAddedNew() : super._();
+
+  @override
+  String toString() {
+    return 'TicketListState.addedNew()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TicketListStateAddedNew);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() addedNew,
+    required TResult Function(List<Ticket> tickets) success,
+  }) {
+    return addedNew();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? addedNew,
+    TResult? Function(List<Ticket> tickets)? success,
+  }) {
+    return addedNew?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? addedNew,
+    TResult Function(List<Ticket> tickets)? success,
+    required TResult orElse(),
+  }) {
+    if (addedNew != null) {
+      return addedNew();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TicketListStateInitial value) initial,
+    required TResult Function(_TicketListStateLoading value) loading,
+    required TResult Function(_TicketListStateAddedNew value) addedNew,
+    required TResult Function(_TicketListSuccess value) success,
+  }) {
+    return addedNew(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_TicketListStateInitial value)? initial,
+    TResult? Function(_TicketListStateLoading value)? loading,
+    TResult? Function(_TicketListStateAddedNew value)? addedNew,
+    TResult? Function(_TicketListSuccess value)? success,
+  }) {
+    return addedNew?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TicketListStateInitial value)? initial,
+    TResult Function(_TicketListStateLoading value)? loading,
+    TResult Function(_TicketListStateAddedNew value)? addedNew,
+    TResult Function(_TicketListSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (addedNew != null) {
+      return addedNew(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TicketListStateAddedNew extends TicketListState {
+  const factory _TicketListStateAddedNew() = _$_TicketListStateAddedNew;
+  const _TicketListStateAddedNew._() : super._();
 }
 
 /// @nodoc
@@ -528,6 +662,7 @@ class _$_TicketListSuccess extends _TicketListSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() addedNew,
     required TResult Function(List<Ticket> tickets) success,
   }) {
     return success(tickets);
@@ -538,6 +673,7 @@ class _$_TicketListSuccess extends _TicketListSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? addedNew,
     TResult? Function(List<Ticket> tickets)? success,
   }) {
     return success?.call(tickets);
@@ -548,6 +684,7 @@ class _$_TicketListSuccess extends _TicketListSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? addedNew,
     TResult Function(List<Ticket> tickets)? success,
     required TResult orElse(),
   }) {
@@ -562,6 +699,7 @@ class _$_TicketListSuccess extends _TicketListSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketListStateInitial value) initial,
     required TResult Function(_TicketListStateLoading value) loading,
+    required TResult Function(_TicketListStateAddedNew value) addedNew,
     required TResult Function(_TicketListSuccess value) success,
   }) {
     return success(this);
@@ -572,6 +710,7 @@ class _$_TicketListSuccess extends _TicketListSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketListStateInitial value)? initial,
     TResult? Function(_TicketListStateLoading value)? loading,
+    TResult? Function(_TicketListStateAddedNew value)? addedNew,
     TResult? Function(_TicketListSuccess value)? success,
   }) {
     return success?.call(this);
@@ -582,6 +721,7 @@ class _$_TicketListSuccess extends _TicketListSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketListStateInitial value)? initial,
     TResult Function(_TicketListStateLoading value)? loading,
+    TResult Function(_TicketListStateAddedNew value)? addedNew,
     TResult Function(_TicketListSuccess value)? success,
     required TResult orElse(),
   }) {

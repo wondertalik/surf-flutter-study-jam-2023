@@ -11,9 +11,9 @@ class TickectInjectionBuilder extends InjectionBuilder {
           () => TicketSqliteDataSourceImpl(sqliteService: sl()))
       ..registerFactory<TicketRepository>(
           () => TicketRepositoryImpl(ticketDataSource: sl()))
-      ..registerFactory<TicketListBloc>(
-          () => TicketListBloc(ticketRepository: sl()))
-      ..registerFactory<TicketCreateBloc>(
-          () => TicketCreateBloc(ticketRepository: sl()));
+      ..registerFactoryParam<TicketListBloc, TicketRepository, void>(
+          (repository, _) => TicketListBloc(ticketRepository: repository))
+      ..registerFactoryParam<TicketCreateBloc, TicketRepository, void>(
+          (repository, _) => TicketCreateBloc(ticketRepository: repository));
   }
 }

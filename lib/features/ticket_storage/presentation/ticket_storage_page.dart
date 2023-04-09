@@ -5,8 +5,21 @@ import 'package:surf_flutter_study_jam_2023/features/ticket_storage/ticket_stora
 import 'package:surf_flutter_study_jam_2023/service_locator.dart';
 
 /// Display “Tickets Storage”.
-class TicketStoragePage extends StatelessWidget {
+class TicketStoragePage extends StatefulWidget {
   const TicketStoragePage({Key? key}) : super(key: key);
+
+  @override
+  State<TicketStoragePage> createState() => _TicketStoragePageState();
+}
+
+class _TicketStoragePageState extends State<TicketStoragePage> {
+  late TicketRepository _ticketRepository;
+
+  @override
+  void initState() {
+    super.initState();
+    _ticketRepository = ServiceLocator.instance.sl<TicketRepository>();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +29,7 @@ class TicketStoragePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: BlocProvider(
-          create: (context) => ServiceLocator.instance.sl<TicketListBloc>()
+          create: (context) => ServiceLocator.instance.sl<TicketListBloc>(param1: _ticketRepository)
             ..add(const TicketListEvent.requested()),
           child: const TicketStorageContent(),
         ),
@@ -44,7 +57,7 @@ class TicketStoragePage extends StatelessWidget {
                           horizontal: 16.0, vertical: 48.0),
                       child: BlocProvider(
                         create: (context) =>
-                            ServiceLocator.instance.sl<TicketCreateBloc>(),
+                            ServiceLocator.instance.sl<TicketCreateBloc>(param1: _ticketRepository),
                         child: const TicketFormAdd(),
                       ),
                     ),
