@@ -3,9 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:surf_flutter_study_jam_2023/features/locales/locales.dart';
-import 'package:surf_flutter_study_jam_2023/lib.dart';
 
+import 'features/features.dart';
 import 'service_locator.dart';
 
 class App extends StatelessWidget {
@@ -16,7 +15,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => sl<LocaleCubit>(),
+          create: (context) => ServiceLocator.instance.sl<LocaleCubit>(),
         )
       ],
       child: AppView(),

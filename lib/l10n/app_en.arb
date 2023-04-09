@@ -1,3 +1,8 @@
 {
-    "ticketStoragePagetTitle": "Tickets storage"
+    "ticketStoragePagetTitle": "Tickets storage",
+    "ticketAddNew": "Add new",
+    "ticketUrlFieldLable": "Fill url",
+    "ticketButtonAdd": "Add url",
+    "validationRequiredMessage": "Поле обязательное к заполнению",
+    "validationUrlMessage": "Не верный формат Url"
 }
