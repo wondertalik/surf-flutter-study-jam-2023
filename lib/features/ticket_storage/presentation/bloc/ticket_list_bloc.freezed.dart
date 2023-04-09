@@ -19,32 +19,38 @@ mixin _$TicketListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() requested,
+    required TResult Function(int id) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requested,
+    TResult? Function(int id)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requested,
+    TResult Function(int id)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketListEventRequested value) requested,
+    required TResult Function(_TicketListEventDelete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketListEventRequested value)? requested,
+    TResult? Function(_TicketListEventDelete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketListEventRequested value)? requested,
+    TResult Function(_TicketListEventDelete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +115,7 @@ class _$_TicketListEventRequested extends _TicketListEventRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() requested,
+    required TResult Function(int id) delete,
   }) {
     return requested();
   }
@@ -117,6 +124,7 @@ class _$_TicketListEventRequested extends _TicketListEventRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requested,
+    TResult? Function(int id)? delete,
   }) {
     return requested?.call();
   }
@@ -125,6 +133,7 @@ class _$_TicketListEventRequested extends _TicketListEventRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requested,
+    TResult Function(int id)? delete,
     required TResult orElse(),
   }) {
     if (requested != null) {
@@ -137,6 +146,7 @@ class _$_TicketListEventRequested extends _TicketListEventRequested {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketListEventRequested value) requested,
+    required TResult Function(_TicketListEventDelete value) delete,
   }) {
     return requested(this);
   }
@@ -145,6 +155,7 @@ class _$_TicketListEventRequested extends _TicketListEventRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketListEventRequested value)? requested,
+    TResult? Function(_TicketListEventDelete value)? delete,
   }) {
     return requested?.call(this);
   }
@@ -153,6 +164,7 @@ class _$_TicketListEventRequested extends _TicketListEventRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketListEventRequested value)? requested,
+    TResult Function(_TicketListEventDelete value)? delete,
     required TResult orElse(),
   }) {
     if (requested != null) {
@@ -165,6 +177,142 @@ class _$_TicketListEventRequested extends _TicketListEventRequested {
 abstract class _TicketListEventRequested extends TicketListEvent {
   const factory _TicketListEventRequested() = _$_TicketListEventRequested;
   const _TicketListEventRequested._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_TicketListEventDeleteCopyWith<$Res> {
+  factory _$$_TicketListEventDeleteCopyWith(_$_TicketListEventDelete value,
+          $Res Function(_$_TicketListEventDelete) then) =
+      __$$_TicketListEventDeleteCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$_TicketListEventDeleteCopyWithImpl<$Res>
+    extends _$TicketListEventCopyWithImpl<$Res, _$_TicketListEventDelete>
+    implements _$$_TicketListEventDeleteCopyWith<$Res> {
+  __$$_TicketListEventDeleteCopyWithImpl(_$_TicketListEventDelete _value,
+      $Res Function(_$_TicketListEventDelete) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_TicketListEventDelete(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TicketListEventDelete extends _TicketListEventDelete {
+  const _$_TicketListEventDelete({required this.id}) : super._();
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'TicketListEvent.delete(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TicketListEventDelete &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TicketListEventDeleteCopyWith<_$_TicketListEventDelete> get copyWith =>
+      __$$_TicketListEventDeleteCopyWithImpl<_$_TicketListEventDelete>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() requested,
+    required TResult Function(int id) delete,
+  }) {
+    return delete(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? requested,
+    TResult? Function(int id)? delete,
+  }) {
+    return delete?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? requested,
+    TResult Function(int id)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TicketListEventRequested value) requested,
+    required TResult Function(_TicketListEventDelete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_TicketListEventRequested value)? requested,
+    TResult? Function(_TicketListEventDelete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TicketListEventRequested value)? requested,
+    TResult Function(_TicketListEventDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TicketListEventDelete extends TicketListEvent {
+  const factory _TicketListEventDelete({required final int id}) =
+      _$_TicketListEventDelete;
+  const _TicketListEventDelete._() : super._();
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$_TicketListEventDeleteCopyWith<_$_TicketListEventDelete> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

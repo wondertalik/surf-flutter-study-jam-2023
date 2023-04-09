@@ -22,6 +22,11 @@ class TicketRepositoryImpl extends TicketRepository {
   }
 
   @override
+  Future<void> delete(int id) async {
+    return _ticketDataSource.delete(id);
+  }
+
+  @override
   Future<List<Ticket>> getTickets() async {
     final results = await _ticketDataSource.getTickets();
     return results.map((e) => e.trasnform()).toList();

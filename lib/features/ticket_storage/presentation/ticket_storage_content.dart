@@ -45,31 +45,50 @@ class TicketsList extends StatelessWidget {
         itemBuilder: (context, index) {
           final item = tickets[index];
           final progress = 0.0;
-          return Row(
-            children: [
-              const Icon(Icons.airplane_ticket_outlined),
-              const SizedBox(width: 24.0),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(item.fileName),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4.0),
-                      child: LinearProgressIndicator(
-                        value: progress,
+          return Dismissible(
+            key: ValueKey(item.id.toString()),
+            onDismissed: (direction) {
+              context
+                  .read<TicketListBloc>()
+                  .add(TicketListEvent.delete(id: item.id));
+            },
+            background: Container(
+              color: Colors.red,
+              child: const Padding(
+                  padding: EdgeInsets.only(right: 24.0),
+                  child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(
+                        Icons.delete,
+                        color: Colors.white,
+                      ))),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.airplane_ticket_outlined),
+                const SizedBox(width: 24.0),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(item.fileName),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: LinearProgressIndicator(
+                          value: progress,
+                        ),
                       ),
-                    ),
-                    Text(AppLocalizations.of(context)!
-                        .ticketAwaitingDownloadLabel),
-                  ],
+                      Text(AppLocalizations.of(context)!
+                          .ticketAwaitingDownloadLabel),
+                    ],
+                  ),
                 ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.cloud_download_outlined),
-              ),
-            ],
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.cloud_download_outlined),
+                ),
+              ],
+            ),
           );
         },
         separatorBuilder: (context, _) => const SizedBox(height: 24.0),

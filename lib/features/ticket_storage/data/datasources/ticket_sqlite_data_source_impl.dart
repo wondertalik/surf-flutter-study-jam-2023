@@ -18,6 +18,11 @@ class TicketSqliteDataSourceImpl extends TicketDataSource {
   }
 
   @override
+  Future<void> delete(int id) async {
+    await _sqliteService.db.delete('tickets', where: 'id = ?', whereArgs: [id]);
+  }
+
+  @override
   Future<List<TicketModel>> getTickets() async {
     final List<Map<String, dynamic>> queryResult =
         await _sqliteService.db.query('tickets');

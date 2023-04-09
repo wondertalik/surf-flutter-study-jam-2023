@@ -4,6 +4,7 @@ import 'ticket_repository_event.dart';
 
 abstract class TicketRepository {
   Future<void> create(TicketCreate data);
+  Future<void> delete(int id);
   Future<List<Ticket>> getTickets();
 
   Stream<TicketRepositoryEvent> get events;

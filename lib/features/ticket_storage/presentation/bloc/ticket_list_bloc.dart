@@ -10,6 +10,9 @@ part 'ticket_list_bloc.freezed.dart';
 class TicketListEvent with _$TicketListEvent {
   const factory TicketListEvent.requested() = _TicketListEventRequested;
 
+  const factory TicketListEvent.delete({required final int id}) =
+      _TicketListEventDelete;
+
   const TicketListEvent._();
 }
 
@@ -38,7 +41,8 @@ class TicketListBloc extends Bloc<TicketListEvent, TicketListState> {
       ),
     );
     on<TicketListEvent>((event, emitter) => event.map<Future<void>>(
-        requested: (event) => _requestTickets(event, emitter)));
+        requested: (event) => _requestTickets(event, emitter),
+        delete: (event) => _deleteTicket(event, emitter)));
   }
 
   final TicketRepository _ticketRepository;
@@ -47,10 +51,20 @@ class TicketListBloc extends Bloc<TicketListEvent, TicketListState> {
   Future<void> _requestTickets(
       _TicketListEventRequested event, Emitter<TicketListState> emitter) async {
     emitter(const TicketListState.loading());
-    
+
     final results = await _ticketRepository.getTickets();
 
     emitter(TicketListState.success(tickets: results));
+  }
+
+  Future<void> _deleteTicket(
+      _TicketListEventDelete event, Emitter<TicketListState> emitter) async {
+    await _ticketRepository.delete(event.id);
+
+    final tickets = List<Ticket>.from((state as _TicketListSuccess).tickets)
+      ..removeWhere((element) => element.id == event.id);
+
+    emitter(TicketListState.success(tickets: tickets));
   }
 
   @override
