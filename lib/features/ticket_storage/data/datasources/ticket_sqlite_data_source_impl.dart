@@ -24,6 +24,7 @@ class TicketSqliteDataSourceImpl extends TicketDataSource {
     return queryResult
         .map((e) => TicketModel(
             id: e['id'],
+            fileName: e['fileName'],
             url: e['url'],
             createdAt: DateTime.parse(e['createdAt'])))
         .toList();

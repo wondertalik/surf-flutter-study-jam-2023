@@ -9,6 +9,7 @@ class TicketModel with _$TicketModel implements TransformTo<Ticket> {
   const factory TicketModel({
     required final int id,
     required final String url,
+    required final String fileName,
     required final DateTime createdAt,
   }) = _TicketModel;
 
@@ -18,6 +19,7 @@ class TicketModel with _$TicketModel implements TransformTo<Ticket> {
   Ticket trasnform() {
     return Ticket(
       id: id,
+      fileName: fileName,
       url: url,
       createdAt: createdAt,
     );

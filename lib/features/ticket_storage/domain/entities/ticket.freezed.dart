@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Ticket {
   int get id => throw _privateConstructorUsedError;
+  String get fileName => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -29,7 +30,7 @@ abstract class $TicketCopyWith<$Res> {
   factory $TicketCopyWith(Ticket value, $Res Function(Ticket) then) =
       _$TicketCopyWithImpl<$Res, Ticket>;
   @useResult
-  $Res call({int id, String url, DateTime createdAt});
+  $Res call({int id, String fileName, String url, DateTime createdAt});
 }
 
 /// @nodoc
@@ -46,6 +47,7 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
   @override
   $Res call({
     Object? id = null,
+    Object? fileName = null,
     Object? url = null,
     Object? createdAt = null,
   }) {
@@ -54,6 +56,10 @@ class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -72,7 +78,7 @@ abstract class _$$_TicketCopyWith<$Res> implements $TicketCopyWith<$Res> {
       __$$_TicketCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String url, DateTime createdAt});
+  $Res call({int id, String fileName, String url, DateTime createdAt});
 }
 
 /// @nodoc
@@ -86,6 +92,7 @@ class __$$_TicketCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? fileName = null,
     Object? url = null,
     Object? createdAt = null,
   }) {
@@ -94,6 +101,10 @@ class __$$_TicketCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -110,10 +121,15 @@ class __$$_TicketCopyWithImpl<$Res>
 
 class _$_Ticket implements _Ticket {
   const _$_Ticket(
-      {required this.id, required this.url, required this.createdAt});
+      {required this.id,
+      required this.fileName,
+      required this.url,
+      required this.createdAt});
 
   @override
   final int id;
+  @override
+  final String fileName;
   @override
   final String url;
   @override
@@ -121,7 +137,7 @@ class _$_Ticket implements _Ticket {
 
   @override
   String toString() {
-    return 'Ticket(id: $id, url: $url, createdAt: $createdAt)';
+    return 'Ticket(id: $id, fileName: $fileName, url: $url, createdAt: $createdAt)';
   }
 
   @override
@@ -130,13 +146,15 @@ class _$_Ticket implements _Ticket {
         (other.runtimeType == runtimeType &&
             other is _$_Ticket &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, url, createdAt);
+  int get hashCode => Object.hash(runtimeType, id, fileName, url, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -148,11 +166,14 @@ class _$_Ticket implements _Ticket {
 abstract class _Ticket implements Ticket {
   const factory _Ticket(
       {required final int id,
+      required final String fileName,
       required final String url,
       required final DateTime createdAt}) = _$_Ticket;
 
   @override
   int get id;
+  @override
+  String get fileName;
   @override
   String get url;
   @override

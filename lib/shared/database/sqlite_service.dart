@@ -15,7 +15,8 @@ class SqliteService {
         await database.execute(
           '''
            CREATE TABLE tickets(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,  
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            fileName TEXT NOT NULL,  
             url TEXT NOT NULL,
             createdAt TEXT NOT NULL
             )

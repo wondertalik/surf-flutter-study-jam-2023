@@ -25,22 +25,30 @@ class _TicketFormAddState extends State<TicketFormAdd> {
   Widget build(BuildContext context) {
     return BlocListener<TicketCreateBloc, TicketCreateState>(
       listener: (context, state) {
-        state.whenOrNull(
-          created: () {
-            context.pop();
-            ScaffoldMessenger.of(context)
-              ..hideCurrentSnackBar()
-              ..showSnackBar(
-                SnackBar(
-                  behavior: SnackBarBehavior.floating,
-                  showCloseIcon: true,
-                  content: Text(
-                    AppLocalizations.of(context)!.ticketAddedSuccessfully,
-                  ),
+        state.whenOrNull(created: () {
+          context.pop();
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(
+                behavior: SnackBarBehavior.floating,
+                showCloseIcon: true,
+                content: Text(
+                  AppLocalizations.of(context)!.ticketAddedSuccessfully,
                 ),
-              );
-          },
-        );
+              ),
+            );
+        }, error: () {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(
+                behavior: SnackBarBehavior.floating,
+                showCloseIcon: true,
+                content: Text('Error'),
+              ),
+            );
+        });
       },
       child: Form(
         key: _formKey,
@@ -71,6 +79,7 @@ class _TicketFormAddState extends State<TicketFormAdd> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
+                  FocusScope.of(context).requestFocus(FocusNode());
                   context.read<TicketCreateBloc>().add(TicketCreateEvent.add(
                       data: TicketCreate(url: urlValue!)));
                 }

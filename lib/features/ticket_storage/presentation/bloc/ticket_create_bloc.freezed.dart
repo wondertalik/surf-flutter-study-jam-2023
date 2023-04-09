@@ -241,18 +241,21 @@ mixin _$TicketCreateState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() created,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? created,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? created,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -260,18 +263,21 @@ mixin _$TicketCreateState {
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketCreateStateInitial value) initial,
     required TResult Function(_TicketCreateStateCreate value) created,
+    required TResult Function(_TicketCreateStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketCreateStateInitial value)? initial,
     TResult? Function(_TicketCreateStateCreate value)? created,
+    TResult? Function(_TicketCreateStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketCreateStateInitial value)? initial,
     TResult Function(_TicketCreateStateCreate value)? created,
+    TResult Function(_TicketCreateStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -337,6 +343,7 @@ class _$_TicketCreateStateInitial extends _TicketCreateStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() created,
+    required TResult Function() error,
   }) {
     return initial();
   }
@@ -346,6 +353,7 @@ class _$_TicketCreateStateInitial extends _TicketCreateStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? created,
+    TResult? Function()? error,
   }) {
     return initial?.call();
   }
@@ -355,6 +363,7 @@ class _$_TicketCreateStateInitial extends _TicketCreateStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? created,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -368,6 +377,7 @@ class _$_TicketCreateStateInitial extends _TicketCreateStateInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketCreateStateInitial value) initial,
     required TResult Function(_TicketCreateStateCreate value) created,
+    required TResult Function(_TicketCreateStateError value) error,
   }) {
     return initial(this);
   }
@@ -377,6 +387,7 @@ class _$_TicketCreateStateInitial extends _TicketCreateStateInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketCreateStateInitial value)? initial,
     TResult? Function(_TicketCreateStateCreate value)? created,
+    TResult? Function(_TicketCreateStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -386,6 +397,7 @@ class _$_TicketCreateStateInitial extends _TicketCreateStateInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketCreateStateInitial value)? initial,
     TResult Function(_TicketCreateStateCreate value)? created,
+    TResult Function(_TicketCreateStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -441,6 +453,7 @@ class _$_TicketCreateStateCreate extends _TicketCreateStateCreate {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() created,
+    required TResult Function() error,
   }) {
     return created();
   }
@@ -450,6 +463,7 @@ class _$_TicketCreateStateCreate extends _TicketCreateStateCreate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? created,
+    TResult? Function()? error,
   }) {
     return created?.call();
   }
@@ -459,6 +473,7 @@ class _$_TicketCreateStateCreate extends _TicketCreateStateCreate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? created,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (created != null) {
@@ -472,6 +487,7 @@ class _$_TicketCreateStateCreate extends _TicketCreateStateCreate {
   TResult map<TResult extends Object?>({
     required TResult Function(_TicketCreateStateInitial value) initial,
     required TResult Function(_TicketCreateStateCreate value) created,
+    required TResult Function(_TicketCreateStateError value) error,
   }) {
     return created(this);
   }
@@ -481,6 +497,7 @@ class _$_TicketCreateStateCreate extends _TicketCreateStateCreate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TicketCreateStateInitial value)? initial,
     TResult? Function(_TicketCreateStateCreate value)? created,
+    TResult? Function(_TicketCreateStateError value)? error,
   }) {
     return created?.call(this);
   }
@@ -490,6 +507,7 @@ class _$_TicketCreateStateCreate extends _TicketCreateStateCreate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TicketCreateStateInitial value)? initial,
     TResult Function(_TicketCreateStateCreate value)? created,
+    TResult Function(_TicketCreateStateError value)? error,
     required TResult orElse(),
   }) {
     if (created != null) {
@@ -502,4 +520,114 @@ class _$_TicketCreateStateCreate extends _TicketCreateStateCreate {
 abstract class _TicketCreateStateCreate extends TicketCreateState {
   const factory _TicketCreateStateCreate() = _$_TicketCreateStateCreate;
   const _TicketCreateStateCreate._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_TicketCreateStateErrorCopyWith<$Res> {
+  factory _$$_TicketCreateStateErrorCopyWith(_$_TicketCreateStateError value,
+          $Res Function(_$_TicketCreateStateError) then) =
+      __$$_TicketCreateStateErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TicketCreateStateErrorCopyWithImpl<$Res>
+    extends _$TicketCreateStateCopyWithImpl<$Res, _$_TicketCreateStateError>
+    implements _$$_TicketCreateStateErrorCopyWith<$Res> {
+  __$$_TicketCreateStateErrorCopyWithImpl(_$_TicketCreateStateError _value,
+      $Res Function(_$_TicketCreateStateError) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TicketCreateStateError extends _TicketCreateStateError {
+  const _$_TicketCreateStateError() : super._();
+
+  @override
+  String toString() {
+    return 'TicketCreateState.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TicketCreateStateError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() created,
+    required TResult Function() error,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? created,
+    TResult? Function()? error,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? created,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TicketCreateStateInitial value) initial,
+    required TResult Function(_TicketCreateStateCreate value) created,
+    required TResult Function(_TicketCreateStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_TicketCreateStateInitial value)? initial,
+    TResult? Function(_TicketCreateStateCreate value)? created,
+    TResult? Function(_TicketCreateStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TicketCreateStateInitial value)? initial,
+    TResult Function(_TicketCreateStateCreate value)? created,
+    TResult Function(_TicketCreateStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TicketCreateStateError extends TicketCreateState {
+  const factory _TicketCreateStateError() = _$_TicketCreateStateError;
+  const _TicketCreateStateError._() : super._();
 }

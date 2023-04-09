@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TicketModel {
   int get id => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
+  String get fileName => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +32,7 @@ abstract class $TicketModelCopyWith<$Res> {
           TicketModel value, $Res Function(TicketModel) then) =
       _$TicketModelCopyWithImpl<$Res, TicketModel>;
   @useResult
-  $Res call({int id, String url, DateTime createdAt});
+  $Res call({int id, String url, String fileName, DateTime createdAt});
 }
 
 /// @nodoc
@@ -49,6 +50,7 @@ class _$TicketModelCopyWithImpl<$Res, $Val extends TicketModel>
   $Res call({
     Object? id = null,
     Object? url = null,
+    Object? fileName = null,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -59,6 +61,10 @@ class _$TicketModelCopyWithImpl<$Res, $Val extends TicketModel>
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
           ? _value.createdAt
@@ -76,7 +82,7 @@ abstract class _$$_TicketModelCopyWith<$Res>
       __$$_TicketModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String url, DateTime createdAt});
+  $Res call({int id, String url, String fileName, DateTime createdAt});
 }
 
 /// @nodoc
@@ -92,6 +98,7 @@ class __$$_TicketModelCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? url = null,
+    Object? fileName = null,
     Object? createdAt = null,
   }) {
     return _then(_$_TicketModel(
@@ -102,6 +109,10 @@ class __$$_TicketModelCopyWithImpl<$Res>
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
           ? _value.createdAt
@@ -115,7 +126,10 @@ class __$$_TicketModelCopyWithImpl<$Res>
 
 class _$_TicketModel extends _TicketModel {
   const _$_TicketModel(
-      {required this.id, required this.url, required this.createdAt})
+      {required this.id,
+      required this.url,
+      required this.fileName,
+      required this.createdAt})
       : super._();
 
   @override
@@ -123,11 +137,13 @@ class _$_TicketModel extends _TicketModel {
   @override
   final String url;
   @override
+  final String fileName;
+  @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'TicketModel(id: $id, url: $url, createdAt: $createdAt)';
+    return 'TicketModel(id: $id, url: $url, fileName: $fileName, createdAt: $createdAt)';
   }
 
   @override
@@ -137,12 +153,14 @@ class _$_TicketModel extends _TicketModel {
             other is _$_TicketModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.url, url) || other.url == url) &&
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, url, createdAt);
+  int get hashCode => Object.hash(runtimeType, id, url, fileName, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -155,6 +173,7 @@ abstract class _TicketModel extends TicketModel {
   const factory _TicketModel(
       {required final int id,
       required final String url,
+      required final String fileName,
       required final DateTime createdAt}) = _$_TicketModel;
   const _TicketModel._() : super._();
 
@@ -162,6 +181,8 @@ abstract class _TicketModel extends TicketModel {
   int get id;
   @override
   String get url;
+  @override
+  String get fileName;
   @override
   DateTime get createdAt;
   @override

@@ -20,6 +20,8 @@ class TicketCreateState with _$TicketCreateState {
 
   const factory TicketCreateState.created() = _TicketCreateStateCreate;
 
+  const factory TicketCreateState.error() = _TicketCreateStateError;
+
   const TicketCreateState._();
 }
 
@@ -36,7 +38,9 @@ class TicketCreateBloc extends Bloc<TicketCreateEvent, TicketCreateState> {
 
   Future<void> _addNewTicket(
       _TicketCreateEventAdd event, Emitter<TicketCreateState> emitter) async {
-    await _ticketRepository.create(event.data);
-    emitter(const TicketCreateState.created());
+    try {
+      await _ticketRepository.create(event.data);
+      emitter(const TicketCreateState.created());
+    } on Exception catch (_) {}
   }
 }

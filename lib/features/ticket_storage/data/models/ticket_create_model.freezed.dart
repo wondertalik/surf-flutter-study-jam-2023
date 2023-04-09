@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TicketCreateModel {
+  String get fileName => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -30,7 +31,7 @@ abstract class $TicketCreateModelCopyWith<$Res> {
           TicketCreateModel value, $Res Function(TicketCreateModel) then) =
       _$TicketCreateModelCopyWithImpl<$Res, TicketCreateModel>;
   @useResult
-  $Res call({String url, DateTime createdAt});
+  $Res call({String fileName, String url, DateTime createdAt});
 }
 
 /// @nodoc
@@ -46,10 +47,15 @@ class _$TicketCreateModelCopyWithImpl<$Res, $Val extends TicketCreateModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? fileName = null,
     Object? url = null,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -70,7 +76,7 @@ abstract class _$$_TicketCreateModelCopyWith<$Res>
       __$$_TicketCreateModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String url, DateTime createdAt});
+  $Res call({String fileName, String url, DateTime createdAt});
 }
 
 /// @nodoc
@@ -84,10 +90,15 @@ class __$$_TicketCreateModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? fileName = null,
     Object? url = null,
     Object? createdAt = null,
   }) {
     return _then(_$_TicketCreateModel(
+      fileName: null == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -103,9 +114,12 @@ class __$$_TicketCreateModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TicketCreateModel extends _TicketCreateModel {
-  const _$_TicketCreateModel({required this.url, required this.createdAt})
+  const _$_TicketCreateModel(
+      {required this.fileName, required this.url, required this.createdAt})
       : super._();
 
+  @override
+  final String fileName;
   @override
   final String url;
   @override
@@ -113,7 +127,7 @@ class _$_TicketCreateModel extends _TicketCreateModel {
 
   @override
   String toString() {
-    return 'TicketCreateModel(url: $url, createdAt: $createdAt)';
+    return 'TicketCreateModel(fileName: $fileName, url: $url, createdAt: $createdAt)';
   }
 
   @override
@@ -121,13 +135,15 @@ class _$_TicketCreateModel extends _TicketCreateModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TicketCreateModel &&
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, url, createdAt);
+  int get hashCode => Object.hash(runtimeType, fileName, url, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -139,10 +155,13 @@ class _$_TicketCreateModel extends _TicketCreateModel {
 
 abstract class _TicketCreateModel extends TicketCreateModel {
   const factory _TicketCreateModel(
-      {required final String url,
+      {required final String fileName,
+      required final String url,
       required final DateTime createdAt}) = _$_TicketCreateModel;
   const _TicketCreateModel._() : super._();
 
+  @override
+  String get fileName;
   @override
   String get url;
   @override

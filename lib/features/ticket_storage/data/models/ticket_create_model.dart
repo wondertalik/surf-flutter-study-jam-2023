@@ -5,6 +5,7 @@ part 'ticket_create_model.freezed.dart';
 @freezed
 class TicketCreateModel with _$TicketCreateModel {
   const factory TicketCreateModel({
+    required final String fileName,
     required final String url,
     required final DateTime createdAt,
   }) = _TicketCreateModel;
@@ -14,6 +15,7 @@ class TicketCreateModel with _$TicketCreateModel {
   Map<String, Object> toMap() {
     return {
       'url': url,
+      'fileName': fileName,
       'createdAt': createdAt.toIso8601String(),
     };
   }
